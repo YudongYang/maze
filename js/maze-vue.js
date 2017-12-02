@@ -81,7 +81,7 @@ var messageVUE = new Vue({
     onMessageClick: function() {
       this.bonus += 1
       if(this.bonus == 10) {
-        window.location.href = "./image/bonus.jpg"
+        window.location.href = "image/bonus.jpg"
       }
     }
   }
