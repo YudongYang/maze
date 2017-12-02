@@ -17,6 +17,10 @@
 </head>
 
 <body>
+    <div class="col-xs-12 maze-play-title">
+        <span class="col-xs-6 col-xs-offset-3">Find Princess Mary</span>  
+        <span class="col-xs-12">Attention! I have NOT promise you a possible path! :)</span>  
+    </div>
     <div class="col-xs-12">
         <div id="begin">
             <button type="button" class="btn btn-default mine-play-button-btn" @click="onPlayingButtonClick()">
@@ -25,7 +29,7 @@
         </div>
     </div>
     <div class="col-xs-12">
-        <div id="play" class="maze-play-area">
+        <div id="play" class="col-xs-offset-3 maze-play-area">
             <div class="maze-play-area-line" v-for="(line, x) in viewMap">
                 <div class="maze-play-area-block" v-for="(block, y) in line">
                     <div class="maze-play-area-block-block" :class=" 'maze-play-area-block-' + block" @click="onPlayBlockClick(y, x)">
@@ -39,7 +43,7 @@
     </div>
     <div class="col-xs-12">
         <div id="message">
-            <div v-show="is_win == true">
+            <div v-show="is_win == true" @click="onMessageClick()">
                 Congratulations! You had Found the Princess Mary!
             </div>
         </div>

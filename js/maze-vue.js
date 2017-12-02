@@ -14,7 +14,7 @@ var buttonVUE = new Vue({
   el: '#begin',
   methods: {
     onPlayingButtonClick: function() {
-      mazeGame.init(10, 10)
+      mazeGame.init()
       mazeGame.begin()
       bus.$emit('begin')
     }
@@ -71,11 +71,18 @@ var playVUE = new Vue({
 var messageVUE = new Vue({
   el: '#message',
   data: {
-    is_win: false
+    is_win: false,
+    bonus: 0
   },
   methods: {
     onGameWin: function() {
       this.is_win = true
+    },
+    onMessageClick: function() {
+      this.bonus += 1
+      if(this.bonus == 10) {
+        window.location.href = "/image/bonus.jpg"
+      }
     }
   }
 })
