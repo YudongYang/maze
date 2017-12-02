@@ -5,15 +5,46 @@
     <meta charset="UTF-8">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="./css/bootstrap-theme.min.css">
+    <link rel="stylesheet" type="text/css" href="./css/maze.css">
     <script src="./js/jquery-3.2.1.min.js"></script>
     <script src="./js/cookie.js"></script>
     <script src="./js/bootstrap.min.js"></script>
     <script src="./js/vue.js"></script>
     <script src="./js/axios.min.js"></script>
+    <script src="./js/maze.js"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
     <title>Normal Maze</title>
 </head>
 
 <body>
+    <div class="col-xs-12">
+        <div id="begin">
+            <button type="button" class="btn btn-default mine-play-button-btn" @click="onPlayingButtonClick()">
+                Begin
+            </button>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div id="play" class="maze-play-area">
+            <div class="maze-play-area-line" v-for="(line, x) in viewMap">
+                <div class="maze-play-area-block" v-for="(block, y) in line">
+                    <div class="maze-play-area-block-block" :class=" 'maze-play-area-block-' + block" @click="onPlayBlockClick(y, x)">
+                        <template v-if="x == 1 && y ==1">
+                            {{ directionShow }}
+                        </template>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="col-xs-12">
+        <div id="message">
+            <div v-show="is_win == true">
+                Congratulations! You had Found the Princess Mary!
+            </div>
+        </div>
+    </div>
+    <script src="./js/maze-vue.js"></script>
 </body>
 
 </html>

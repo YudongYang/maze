@@ -1,0 +1,32 @@
+.maze-play-area-block{
+  width: 80px;
+  height: 80px;
+  display: inline-block;
+}
+
+.maze-play-area-line {
+  height: 80px;
+  width: 240px;
+}
+
+.maze-play-area-block-block {
+  width: 100%;
+  height: 100%;
+  font-size: 82px;
+}
+
+.maze-play-area-block-0 {
+  background-color: gray;
+}
+
+.maze-play-area-block-1 {
+  background-color: green;
+}
+
+.maze-play-area-block-2 {
+  background-color: blue;
+}
+
+.maze-play-area-block-3 {
+  background-color: red;
+}

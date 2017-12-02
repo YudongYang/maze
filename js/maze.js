@@ -24,13 +24,16 @@ var MazeGame = function() {
   obj.man = {}
   obj.man.x = 0
   obj.man.y = 0
+  obj.man.direction = 0
 
   obj.playing = false
   obj.win = false
 
   let init = function(width, height) {
-    obj.width = (width || WIDTH)
-    obj.height = (height || HEIGHT)
+    width = width ? width : WIDTH
+    height = height ? height : HEIGHT
+    obj.width = width
+    obj.height = height
     obj.map = initMap(width, height)
     setPoint()
     obj.playing = false
@@ -45,6 +48,10 @@ var MazeGame = function() {
   }
 
   let guideDirection = function(direction) {
+    if(obj.playing == false) {
+      return
+    }
+    obj.man.direction = direction
     switch(direction){
       case DIRECTION.LEFT: running(0, -1); break;
       case DIRECTION.RIGHT: running(0, 1); break;
@@ -54,9 +61,6 @@ var MazeGame = function() {
   }
 
   let running = function(x, y) {
-    if(obj.playing = false) {
-      return
-    }
     let target_x = obj.man.x + x
     let target_y = obj.man.y + y
     if(target_x < 0 || target_x >= obj.width || target_y < 0 || target_y >= obj.height) {
@@ -148,6 +152,11 @@ var MazeGame = function() {
   obj.init = init
   obj.begin = begin
   obj.run = guideDirection
+  obj.DIRECTION = {}
+  obj.DIRECTION.UP = DIRECTION.UP
+  obj.DIRECTION.DOWN = DIRECTION.DOWN
+  obj.DIRECTION.LEFT = DIRECTION.LEFT
+  obj.DIRECTION.RIGHT = DIRECTION.RIGHT
 
   return obj
 }
