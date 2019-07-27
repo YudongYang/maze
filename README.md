@@ -31,3 +31,9 @@ Welcome to pull an Beacutiful UI.
 ## DEMO
 
 http://maze.yudong.xyz
+
+## MORE
+
+MineSweeping
+
+https://github.com/YudongYang/MineSweeping
